@@ -43,10 +43,12 @@ class AddBook extends Component {
 
     render() {
         return (
-            <div>
+            <div className="notification">
+                <div className="content">
+                <h3>Add a new book</h3>
                 <form onSubmit={this.handleSubmit} id="add-book">
                     <div className="field">
-                        <label className="label">Book Name:</label>
+                        <label className="label has-text-grey">Book Name:</label>
                         <input 
                         type="text" 
                         className="input" 
@@ -54,7 +56,7 @@ class AddBook extends Component {
                     </div>
 
                     <div className="field">
-                        <label className="label">Book Genre:</label>
+                        <label className="label has-text-grey">Book Genre:</label>
                         <input 
                         type="text" 
                         className="input"
@@ -62,15 +64,17 @@ class AddBook extends Component {
                     </div>
 
                     <div className="field">
-                        <label className="label">Book Name:</label>
-                        <select 
-                        className="select"
-                        onChange={(e) => this.setState({authorId: e.target.value})}>
-                            { this.displayAuthors() }
-                        </select>
+                        <label className="label has-text-grey">Book Name:</label>
+                        <div className="select">
+                            <select 
+                            onChange={(e) => this.setState({authorId: e.target.value})}>
+                                { this.displayAuthors() }
+                            </select>
+                        </div>
                     </div>
-                    <button className="button" type="submit">go</button>
+                    <button className="button is-small is-success is-outlined" type="submit">Add book!</button>
                 </form>
+            </div>
             </div>
         )
     }

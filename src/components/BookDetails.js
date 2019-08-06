@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
-import { graphql, compose } from 'react-apollo';
+import { graphql } from 'react-apollo';
 import { getBookQuery } from '../apollo/queries';
 
 
 class BookDetails extends Component {
 
     render() {
-    
+        
+        const { data } = this.props;
+        
         return (
-            <div>
-                <p>Output the book details here.</p>
+            <div className="notification" style={{ marginTop: '1rem'}}>
+                <div className="content">
+                    <h3>Book Details</h3>
+                    { 
+                        data.book ? 
+                        <p>{data.book.name}</p>: 
+                        <p>No book</p>
+                    }
+                </div>
+                
             </div>
         )
     }
@@ -17,4 +27,12 @@ class BookDetails extends Component {
 
 
 
-export default graphql(getBookQuery)(BookDetails)
+export default graphql(getBookQuery, {
+    options: (props) => {
+        return {
+            variables: {
+                id: '5d48bd973a9c4c15e005e965'
+            }
+        }
+    }
+})(BookDetails)
