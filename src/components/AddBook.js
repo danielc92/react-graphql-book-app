@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo';
-import { getAuthorsQuery, addBookMutation } from '../apollo/queries';
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../apollo/queries';
 
 class AddBook extends Component {
 
@@ -29,7 +29,16 @@ class AddBook extends Component {
         e.preventDefault();
 
         // Name of mutation function given in compose at end of file
-        this.props.addBookMutation()
+        this.props.addBookMutation({
+            variables: {
+                name: this.state.name,
+                genre: this.state.genre,
+                authorId: this.state.authorId
+            },
+            refetchQueries: [
+                { query: getBooksQuery }
+            ]
+        })
     }
 
     render() {
