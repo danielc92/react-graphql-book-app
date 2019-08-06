@@ -10,13 +10,26 @@ class BookDetails extends Component {
         const { data } = this.props;
         
         return (
-            <div className="notification" style={{ marginTop: '1rem'}}>
+            <div 
+            className="notification is-white" 
+            style={{ marginTop: '1rem'}}>
                 <div className="content">
                     <h3>Book Details</h3>
                     { 
                         data.book ? 
-                        <p>{data.book.name}</p>: 
-                        <p>No book</p>
+                        <div className="notification is-white">
+                        <h3>{data.book.name}</h3>
+                        <p>Ex sint elit nisi et incididunt fugiat aliquip aliqua deserunt et do est consectetur.</p>
+                        <p className="tag is-link">{ data.book.genre }</p>
+                        <p className="tag is-warning"> { data.book.id }</p>
+
+                        <p>Author: {data.book.author.name}</p>
+                        <p>Author age: {data.book.author.age}</p>
+                        <p>Other books by this author: { data.book.author.books.map(b => 
+                            (<span className="tag is-success">{ b.name }</span>)
+                        )}</p>
+                        </div>: 
+                        <p>No book found for this id...</p>
                     }
                 </div>
                 

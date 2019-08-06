@@ -43,7 +43,7 @@ class AddBook extends Component {
 
     render() {
         return (
-            <div className="notification">
+            <div className="notification is-white">
                 <div className="content">
                 <h3>Add a new book</h3>
                 <form onSubmit={this.handleSubmit} id="add-book">

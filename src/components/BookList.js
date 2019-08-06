@@ -7,7 +7,7 @@ class BookList extends Component {
     render() {
         const { data } = this.props;
         return (
-            <section className="notification">
+            <section className="notification is-white">
                 <section className="content">
                 <h3>Book List</h3>
                 <div className="list is-hoverable">

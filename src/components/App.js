@@ -13,13 +13,13 @@ export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div className="container">
-          <BookList/>
-         
-          <BookDetails/>
-
-          <AddBook/>
-        </div>
+        <section style={{backgroundColor: '#f2f2f2'}}>
+          <div className="container">
+            <BookList/>
+            <BookDetails/>
+            <AddBook/>
+          </div>
+        </section>
       </ApolloProvider>
     )
   }
