@@ -5,7 +5,9 @@ import { getBooksQuery } from '../apollo/queries';
 
 class BookList extends Component {
     render() {
+        
         const { data } = this.props;
+        
         return (
             <section className="notification is-white">
                 <section className="content">
@@ -17,6 +19,7 @@ class BookList extends Component {
                     :
                     data.books.map(book => (
                         <div 
+                        onClick={()=>this.props.changeSelected(book.id)}
                         key={ book.id } 
                         className="list-item">{ book.name }
                         </div>))

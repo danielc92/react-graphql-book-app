@@ -10,13 +10,22 @@ const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql'
 })
 export default class App extends Component {
+
+  state = {
+    selected: "5d48f5173e9d81247c79e05f"
+  }
+
+  changeSelected = (selected) => {
+    this.setState({ selected })
+  } 
+
   render() {
     return (
       <ApolloProvider client={client}>
         <section style={{backgroundColor: '#f2f2f2'}}>
           <div className="container">
-            <BookList/>
-            <BookDetails/>
+            <BookList changeSelected={this.changeSelected}/>
+            <BookDetails selected={this.state.selected}/>
             <AddBook/>
           </div>
         </section>

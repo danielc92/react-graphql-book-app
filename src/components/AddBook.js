@@ -19,7 +19,7 @@ class AddBook extends Component {
             return (<option>Loading Authors...</option>)
         } else {
             return (getAuthorsQuery.authors.map(author=>
-            <option key={author.id}>
+            <option key={author.id} value={author.id}>
                 {author.name}
             </option>))
         }

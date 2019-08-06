@@ -19,14 +19,14 @@ class BookDetails extends Component {
                         data.book ? 
                         <div className="notification is-white">
                         <h3>{data.book.name}</h3>
-                        <p>Ex sint elit nisi et incididunt fugiat aliquip aliqua deserunt et do est consectetur.</p>
+                        <p className="tag is-light"> { data.book.id }</p>
                         <p className="tag is-link">{ data.book.genre }</p>
-                        <p className="tag is-warning"> { data.book.id }</p>
+                        
 
                         <p>Author: {data.book.author.name}</p>
                         <p>Author age: {data.book.author.age}</p>
-                        <p>Other books by this author: { data.book.author.books.map(b => 
-                            (<span className="tag is-success">{ b.name }</span>)
+                        <p>Books by this author: { data.book.author.books.map(b => 
+                            (<span key={b.id} className="tag is-success">{ b.name }</span>)
                         )}</p>
                         </div>: 
                         <p>No book found for this id...</p>
@@ -39,12 +39,11 @@ class BookDetails extends Component {
 }
 
 
-
 export default graphql(getBookQuery, {
     options: (props) => {
         return {
             variables: {
-                id: '5d48bd973a9c4c15e005e965'
+                id: props.selected
             }
         }
     }
