@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// Helps create the graphql query
-import { gql } from 'apollo-boost';
 // Helps bind apollo to react
 import { graphql } from 'react-apollo';
-
+import { getBooksQuery } from '../apollo/queries';
 
 
 class BookList extends Component {

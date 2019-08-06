@@ -1,4 +1,5 @@
-import { gcl } from 'apollo-boost';
+// Helps create the graphql query
+import { gql } from 'apollo-boost';
 
 
 export const getAuthorsQuery = gql`
