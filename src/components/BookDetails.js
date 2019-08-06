@@ -11,10 +11,9 @@ class BookDetails extends Component {
         
         return (
             <div 
-            className="notification is-white" 
-            style={{ marginTop: '1rem'}}>
+            className="notification is-white">
                 <div className="content">
-                    <h3>Book Details</h3>
+                    <h3>Details</h3>
                     { 
                         data.book ? 
                         <div className="notification is-white">
