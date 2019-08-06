@@ -2,24 +2,28 @@ import React, { Component } from 'react';
 // Helps bind apollo to react
 import { graphql } from 'react-apollo';
 import { getBooksQuery } from '../apollo/queries';
-
+import BookDetails from './BookDetails';
 
 class BookList extends Component {
     render() {
         console.log(this.props)
         const { data } = this.props;
         return (
-            <div>
+            <div className="list is-hoverable">
                 {
                     data.loading ? 
-                    <progress className="progress is-small is-primary" max="100">15%</progress>
+                    <div className="list-item">Loading List...</div>
                     :
                     data.books.map(book => (
-                        <div key={book.id} className="notification">
-                            <h4 className="title">{ book.name }</h4>
-                            <p class="tag is-dark">{ book.genre }</p>
-                        </div>
-                    ))
+                        <div 
+                        key={ book.id } 
+                        className="list-item">
+                            { book.name }
+                        <br></br>
+                        <span className="tag is-success">
+                            { book.genre }
+                        </span>
+                        </div>))
                 }
             </div>
         )
